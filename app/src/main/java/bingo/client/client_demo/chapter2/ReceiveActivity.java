@@ -48,7 +48,7 @@ public class ReceiveActivity extends ActionBarActivity {
 					xmppConnectionManager.setUsername("admin");
 					xmppConnectionManager.setPassword("admin");
 					xmppConnectionManager.login();
-					System.out.println("+++ start to login: +++");
+					System.out.println("=== start to login: ===");
 				} catch (XMPPException e) {
 					e.printStackTrace();
 				}
@@ -56,15 +56,24 @@ public class ReceiveActivity extends ActionBarActivity {
 				chatManager.addChatListener(
 						new ChatManagerListener() {
 							@Override
-							public void chatCreated(Chat chat, boolean b) {
+							public void chatCreated(final Chat chat, boolean b) {
 								chat.addMessageListener(new MessageListener() {
 									@Override
 									public void processMessage(Chat arg0, Message msg) {
-										System.out.println("+++ the message is: +++"+msg);
-										System.out.println("+++ the message body is: +++" + msg.getBody());
+                                        System.out.println("=== the MessagerListener has been activated. ===");
 
+										System.out.println("=== the message from the server: ==="+msg);
+										System.out.println("=== the message body is: ===" + msg.getBody());
 
-										handler.sendMessage(handler.obtainMessage(1, msg));
+                                        System.out.println("=== send the message back to the sender.===");
+                                        try {
+                                            chat.sendMessage("send the message back to the sender : "+msg.getBody());
+                                            System.out.println("=== successfully send back to the sender. ===");
+                                        } catch (XMPPException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                        handler.sendMessage(handler.obtainMessage(1, msg));
 									}
 								});
 							}
