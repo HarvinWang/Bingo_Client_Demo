@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context="bingo.client.client_demo.chapter1.LoginActivity">
+
+    <TextView
+        android:text="@string/login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="3"
+            android:text="username"
+            android:gravity="right"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/username"
+            android:layout_weight="1"
+            android:text="admin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="3"
+            android:text="password"
+            android:gravity="right"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/password"
+            android:layout_weight="1"
+            android:text="admin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login"
+        android:text="Login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
